@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Hello Extensions",
+  "description": "Base Level Extension",
+  "version": "1.0",
+  "oauth2": {
+    "client_id": "3181425062-hvm9vm7gflucidbn9ivk7km25ibq6qjd.apps.googleusercontent.com",
+    "scopes": ["https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/userinfo.email"]
+  },
+  "action": {
+    "default_popup": "hello.html",
+    "default_icon": "icon.png"
+  },
+  "permissions": [
+    "webRequest", "identity", "debugger", "tabs"
+  ],
+  "host_permissions": [
+    "https://secure.velobank.pl/*"
+  ],
+  "content_scripts": [
+   {
+     "matches": ["https://secure.velobank.pl/*"],
+     "js": ["scripts/history-main.js"],
+     "run_at": "document_start",
+     "world": "MAIN"
+   },
+   {
+    "matches": ["https://secure.velobank.pl/*"],
+    "js": ["scripts/history-isolated.js"],
+    "css": ["scripts/content.css"],
+    "run_at": "document_start"
+    }
+ ],
+ "background": {
+  "service_worker": "scripts/background.js",
+  "type": "module"
+ }
+}

@@ -1,0 +1,35 @@
+.test {
+	background-color: pink;
+}
+
+.payment-row {
+	position: relative;
+}
+
+.payment-status {
+	margin-top: 5px;
+    font-size: 12px;
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+    .payment-status .status {
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        background-color: lightgray;
+    }
+
+        .payment-status .status.synced {
+            background-color: green;
+        }
+
+    .payment-status .category {
+        flex: 1 1 auto; 
+    }
+
+        .payment-status .category select {
+            width: 100%;
+        }
